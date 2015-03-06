@@ -1,12 +1,13 @@
-bin/app-used
+bin/used
 Build.PL
 Changes
 lib/App/used.pm
 LICENSE
 Makefile.PL
 MANIFEST
+META.json
 META.yml
-README
+README.pod
 t/00-load.t
 t/boilerplate.t
 t/critic.t
