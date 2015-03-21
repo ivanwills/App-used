@@ -304,6 +304,11 @@ sub process_file {
         $used->{$module}++;
     }
 
+    my ($base) = $contents =~ m{^ \s* use \s+ base \s* qw/ \s* ( [^/]+ ) \s* /}xms;
+    if ($base) {
+        $used->{$base}++;
+    }
+
     my ($cat_plugins) = $contents =~ m{^ \s* use \s+ Catalyst \s* qw/ \s* ( [^/]+ ) \s* /}xms;
     if ($cat_plugins) {
         my @cat_plugins = split /\s+/, $cat_plugins;
