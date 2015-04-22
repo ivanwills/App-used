@@ -74,3 +74,4 @@ vrc.yml
 tmp*
 temp*
 ^MYMETA\.json$
+tags
