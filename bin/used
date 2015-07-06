@@ -16,7 +16,7 @@ use Data::Dumper qw/Dumper/;
 use English qw/ -no_match_vars /;
 use FindBin qw/$Bin/;
 use File::chdir;
-use Path::Class;
+use Path::Tiny;
 use Module::CoreList;
 use Perl::MinimumVersion;
 use Term::ANSIColor qw/colored/;
@@ -82,18 +82,18 @@ sub main {
         next if skip($file);
 
         if ( -f $file ) {
-            next if $file !~ /[.](?:pm|pod|pl|cgi|t)$/ && file($file)->basename =~ /[.]/;
+            next if $file !~ /[.](?:pm|pod|pl|cgi|t)$/ && path($file)->basename =~ /[.]/;
             next if $option{exclude} && $file =~ m{/ $option{exclude} /}xms;
 
-            if ( file($file)->basename !~ /[.]/xms ) {
-                next if file($file)->slurp !~ /\A.*perl/;
+            if ( path($file)->basename !~ /[.]/xms ) {
+                next if path($file)->slurp !~ /\A.*perl/;
             }
 
             process_file($file, \%used, \%versions);
         }
         else {
             warn "$file\n" if $option{verbose} > 1;
-            push @dirs, dir($file)->children;
+            push @dirs, path($file)->children;
         }
     }
 
@@ -114,7 +114,7 @@ sub main {
     for my $lib ( @{ $option{lib} } ) {
         next if !-d $lib;
         $lib =~ s{/$}{};
-        my @files = eval { dir($lib)->children };
+        my @files = eval { path($lib)->children };
         while (my $file = shift @files) {
             if ( -d $file ) {
                 push @files, $file->children;
@@ -289,7 +289,7 @@ sub show_results {
 sub process_file {
     my ($file, $used, $versions) = @_;
 
-    my $contents = file($file)->slurp;
+    my $contents = path($file)->slurp;
 
     # remove any data or end sections
     $contents =~ s{^__(?:DATA|END)__\n.*\Z}{}xms;
@@ -361,7 +361,7 @@ sub pre_specified {
         );
     }
     elsif (-f $option{build} ) {
-        my $build = file($option{build})->slurp;
+        my $build = path($option{build})->slurp;
 
         my ($required)      = $build =~ /\brequires     \s* (?: => | , ) \s* ( { [^}]*? } )/xms;
         my ($recommends)    = $build =~ /recommends     \s* (?: => | , ) \s* ( { [^}]*? } )/xms;
@@ -402,7 +402,7 @@ sub get_libraries {
 
     return if !-d 'lib';
 
-    my $dir = dir('lib');
+    my $dir = path('lib');
     my @files = $dir->children;
 
     while (my $file = shift @files) {
@@ -430,13 +430,13 @@ sub get_libraries {
             for my $skip_file (qw/ MANIFEST.SKIP /) {
                 next if !-f $skip_file;
                 push @skips, qr/$skip_file$/;
-                push @skips, map {chomp; qr/$_/} grep {!/^\s*$/ && !/^\s*#/} file($skip_file)->slurp;
+                push @skips, map {chomp; qr/$_/} grep {!/^\s*$/ && !/^\s*#/} path($skip_file)->slurp;
             }
             for my $ignore_file (qw/ .gitignore .bzrignore .csvignore /) {
                 next if !-f $ignore_file;
                 push @skips, qr/$ignore_file$/;
 
-                for my $re ( file($ignore_file)->slurp ) {
+                for my $re ( path($ignore_file)->slurp ) {
                     chomp $re;
                     next if $re eq '';
                     $re =~ s/[.]/\\./g;
