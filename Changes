@@ -1,5 +1,21 @@
 Revision history for App-used
 
-0.0.1   2015-03-07
-        First version, released on an unsuspecting world.
+0.0.2   2015-07-13
+        Updating for release of version 0.0.2
+        Converted to Path::Tiny (Ivan Wills)
+        Added Perl 5.22 to list of perl versions to build with (Ivan Wills)
+        Added skipping tags file (Ivan Wills)
 
+0.0.1   2015-03-07
+        Removed unneeded tag (Ivan Wills)
+        Added specific Test::More version for the features being used (Ivan Wills)
+        Made it easier to get minimum versions of files cleaned up what is checked (Ivan Wills)
+        Added missing case of "base" module dependency (Ivan Wills)
+        Added config for coveralls.io (Ivan Wills)
+        Added stop words (Ivan Wills)
+        Fixed manifest files (Ivan Wills)
+        Updated dependencies (Ivan Wills)
+        Fixed boiler plate test (Ivan Wills)
+        Moved file to POD format (Ivan Wills)
+        Moved file from App-Useful (Ivan Wills)
+        Fixed manifest (Ivan Wills)
