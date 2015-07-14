@@ -7,7 +7,8 @@
 =head1 App-used
 
 Installs the script C<used> which tells you what modules have been C<used> or
-C<required> by files in the current directory.
+C<required> or C<extend>ed (Moose) or L<Catalyst> plugins used by files in
+the current directory and subdirectories.
 
 =head1 INSTALLATION
 
