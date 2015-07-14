@@ -359,6 +359,16 @@ sub pre_specified {
             )}
             keys %{ $meta->{build_requires} || {} },
         );
+        %requires = (
+            %requires,
+            map {(
+                $_ => {
+                    build_only => 1,
+                    version    => $meta->{configure_requires}{$_},
+                },
+            )}
+            keys %{ $meta->{configure_requires} || {} },
+        );
     }
     elsif (-f $option{build} ) {
         my $build = path($option{build})->slurp;
