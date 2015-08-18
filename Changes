@@ -1,5 +1,9 @@
 Revision history for App-used
 
+0.0.4   2015-08-18
+        Updating for release of version 0.0.4
+        Removed creation of makefile (Ivan Wills)
+
 0.0.3   2015-07-15
         Updating for release of version 0.0.3
         Improved documentation (Ivan Wills)
