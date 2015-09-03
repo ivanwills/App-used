@@ -176,7 +176,7 @@ sub show_results {
     my $star = ' ';
     if ( $specified->{perl} && $max_ver > $specified->{perl}{version} ) {
         $star = '⁑';
-        $notes{$star} = 'The specified minimum perl version is less than some used features require';
+        $notes{$star} = "The specified minimum perl version ($specified->{perl}{version}) is less than some used features require";
     }
     print "Perl$star $max_ver\n" unless $option{quiet};
     delete $specified->{perl};
