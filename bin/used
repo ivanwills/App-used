@@ -93,7 +93,9 @@ sub main {
         }
         else {
             warn "$file\n" if $option{verbose} > 1;
-            push @dirs, path($file)->children;
+            eval {
+                push @dirs, path($file)->children;
+            };
         }
     }
 
