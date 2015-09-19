@@ -1,5 +1,11 @@
 Revision history for App-used
 
+0.0.6   2015-09-19
+        Updating for release of version 0.0.6
+        Added missing documentation of options (Ivan Wills)
+        Only warn the directory in verbose mode if the directory is read (Ivan Wills)
+        Fixed issue with dieing on broken symlinks (Ivan Wills)
+
 0.0.5   2015-09-12
         Updating for release of version 0.0.5
         Added debian directory to list of directories to be ignored (Ivan Wills)

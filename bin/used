@@ -22,7 +22,7 @@ use Perl::MinimumVersion;
 use Term::ANSIColor qw/colored/;
 use YAML::Syck qw/LoadFile/;
 
-our $VERSION = version->new('0.0.5');
+our $VERSION = version->new('0.0.6');
 my ($name)   = $PROGRAM_NAME =~ m{^.*/(.*?)$}mxs;
 
 my %option = (
