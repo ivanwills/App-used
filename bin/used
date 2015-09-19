@@ -92,9 +92,9 @@ sub main {
             process_file($file, \%used, \%versions);
         }
         else {
-            warn "$file\n" if $option{verbose} > 1;
             eval {
                 push @dirs, path($file)->children;
+                warn "$file\n" if $option{verbose} > 1;
             };
         }
     }
