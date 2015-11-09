@@ -78,7 +78,7 @@ sub main {
     my %used;
     my %versions;
     while ( my $file = shift @dirs ) {
-        next if $file =~ m{ (?: README(?: [.]pod | [.]md)? $ | MANIFEST(?:[.]SKIP)?$ | Changes$ | [._]build | blib | [.](?: git | svn | bzr) | CVS | RCS | debian ) }xms;
+        next if $file =~ m{ (?: README(?: [.]pod | [.]md)? $ | MANIFEST(?:[.]SKIP)?$ | Changes$ | [._]build | blib | [.](?: git | svn | bzr | cpanm) | CVS | RCS | debian ) }xms;
         next if skip($file);
 
         if ( -f $file ) {
