@@ -307,7 +307,7 @@ sub process_file {
         $used->{$module}++;
     }
 
-    my ($base) = $contents =~ m{^ \s* use \s+ base \s* qw/ \s* ( [^/]+ ) \s* /}xms;
+    my ($base) = $contents =~ m{^ \s* use \s+ base \s* (?: qw/ \s* | ' ) ( [\w:]+ ) (?: \s* / | ' )}xms;
     if ($base) {
         $used->{$base}++;
     }
