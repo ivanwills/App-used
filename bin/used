@@ -93,7 +93,7 @@ sub main {
         }
         else {
             eval {
-                push @dirs, path($file)->children;
+                push @dirs, grep {!/^[.][^.]+/} path($file)->children;
                 warn "$file\n" if $option{verbose} > 1;
             };
         }
@@ -116,10 +116,10 @@ sub main {
     for my $lib ( @{ $option{lib} } ) {
         next if !-d $lib;
         $lib =~ s{/$}{};
-        my @files = eval { path($lib)->children };
+        my @files = eval { grep {!/^[.][^.]+/} path($lib)->children };
         while (my $file = shift @files) {
             if ( -d $file ) {
-                push @files, $file->children;
+                push @files, grep {!/^[.][^.]+/} $file->children;
             }
             elsif ( $file =~ /[.]pm$/ ) {
                 my $mod = "$file";
@@ -415,11 +415,11 @@ sub get_libraries {
     return if !-d 'lib';
 
     my $dir = path('lib');
-    my @files = $dir->children;
+    my @files = grep {!/^[.][^.]+/} $dir->children;
 
     while (my $file = shift @files) {
         if (-d $file ) {
-            push @files, $file->children;
+            push @files, grep {!/^[.][^.]+/} $file->children;
         }
         elsif ($file =~ /[.]pm$/) {
             my $module = $file;
