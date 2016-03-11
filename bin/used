@@ -513,7 +513,7 @@ This documentation refers to used version 0.1.
 
 The C<used> tells you what modules have been C<used> or C<required> or
 C<extend>ed (Moose) or L<Catalyst> plugins used by files in the current
-directory and subdirectoies.
+directory and subdirectories.
 
 =head1 SUBROUTINES/METHODS
 
