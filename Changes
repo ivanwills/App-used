@@ -1,5 +1,14 @@
 Revision history for App-used
 
+0.0.7   2016-03-20
+        Updating for release of version 0.0.7
+        Updated date (Ivan Wills)
+        Fixed typo (Ivan Wills)
+        Added logic to skip dot files (Ivan Wills)
+        Added config files (Ivan Wills)
+        Improved base module finding (Ivan Wills)
+        Added .cpanm to directories/files to ignore (Ivan Wills)
+
 0.0.6   2015-09-19
         Updating for release of version 0.0.6
         Added missing documentation of options (Ivan Wills)
