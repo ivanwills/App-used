@@ -9,6 +9,7 @@
 use strict;
 use warnings;
 use version;
+use v5;
 use Getopt::Long;
 use Pod::Usage;
 use List::Util qw/max/;
