@@ -305,6 +305,7 @@ sub process_file {
     push @modules, $contents =~ m{^ \s* (?: (?: use | require ) \s+ ok | extends ) \s+ ['"]( [\w:]+ )['"] }gxms;
 
     for my $module (@modules) {
+        next if $module =~ /^v5$/;
         $used->{$module}++;
     }
 
