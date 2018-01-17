@@ -95,7 +95,7 @@ sub main {
         else {
             eval {
                 push @dirs, grep {!/^[.][^.]+/} path($file)->children;
-                warn "$file\n" if $option{verbose} > 1;
+                warn "$file\n" if $option{verbose} > 5;
             };
         }
     }
