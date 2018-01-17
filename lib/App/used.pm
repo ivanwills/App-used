@@ -45,8 +45,16 @@ This documentation refers to App::used version 0.0.8
   -U --update     Update the requires section of the Build.PL file
   -d --decending  Reverse the sort order
 
+  -m --min-version
+                  Show all files minimum Perl version requirement.
   -p --perl-version
                   Show files that require the highest version of Perl to be used
+  -u --uses       Show dependent modules in order of how often they are used
+  -b --build[=]name
+                  Specify the builder script file (Default Build.PL)
+  -x --exclude[=]regexp
+                  Ignore directories and files matching this regexp
+  -q --quiet      Quiet down output
   -v --verbose    Show more detailed option
                     Specified once shows module verion numbers verses required
                     versions.
@@ -58,6 +66,10 @@ This documentation refers to App::used version 0.0.8
      --man        Prints the full documentation for used
 
 =head1 DESCRIPTION
+
+The C<used> tells you what modules have been C<used> or C<required> or
+C<extend>ed (Moose) or L<Catalyst> plugins used by files in the current
+directory and subdirectories.
 
 =head1 SUBROUTINES/METHODS
 
