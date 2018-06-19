@@ -341,7 +341,7 @@ sub pre_specified {
     my %requires;
 
     if (-f 'MYMETA.yml' || -f 'META.yml') {
-        my $meta = LoadFile((-f 'MYMETA' ? 'MY' : '') . 'META.yml');
+        my $meta = LoadFile((-f 'MYMETA.yml' ? 'MY' : '') . 'META.yml');
         %requires = map {( $_ => { version => $meta->{requires}{$_} } )} keys %{ $meta->{requires} || {} };
         %requires = (
             %requires,
