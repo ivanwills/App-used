@@ -4,6 +4,8 @@
 
 <a href="https://travis-ci.org/ivanwills/App-used"><img src="https://travis-ci.org/ivanwills/App-used.png" alt="App-used"></a>
 
+=end html
+
 =head1 App-used
 
 Installs the script C<used> which tells you what modules have been C<used> or
